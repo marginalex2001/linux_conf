@@ -11,11 +11,16 @@
 ##### Поучаем список сетей и подключаемся к нужной:
  - `device устройство get-networks`
  - `device устройство connect SSID`  
- <i>Если сеть скрытая, подключаемся коммандой </i> `device устройство connect-hidden <SSID>`
+ > **_NOTE:_** <i>Если сеть скрытая, подключаемся коммандой </i> `device устройство connect-hidden <SSID>`  
+После этого можно проверить подключение командой  
+ - `ping google.com`
+ 
  ---
 
 ## Установка системы
 ```
 pacstrap -K base linux linux-firmware iwd neovim dhcpcd
 ```
+
+## Разметка дисков
 
