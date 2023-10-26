@@ -43,12 +43,13 @@
 ---
 ### Монтирование дисков:  
 Создаем `boot` и `home` в `mnt`:
- ```mkdir /mnt/{boot,home}  
+ ```
+mkdir /mnt/{boot,home}  
 mkdir /mnt/boot/efi
  ```
 
 Mонтируем корневой раздел в папку `/mnt`:
- - `mount /dev/<корневой_раздел>` `/mnt`
+ - `mount /dev/<корневой_раздел> /mnt`
 
 Монтируем `boot` и `home`:
 
