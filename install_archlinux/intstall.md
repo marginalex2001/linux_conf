@@ -51,9 +51,11 @@ mkdir /mnt/boot/efi
 Mонтируем корневой раздел в папку `/mnt`:
  - `mount /dev/<корневой_раздел> /mnt`
 
-Монтируем `boot` и `home`:
-
-
+Монтируем `efi` и `home`:
+ ```
+ mount /dev/<домашняя_папка> /mnt/home
+ mount /dev/<системный_раздел_efi> /mnt/boot/efi
+ ```
 ---
 ### Установка системы
 ```
