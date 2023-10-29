@@ -92,6 +92,7 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub
 <details>
 <summary>Более сложный вариант с ручной конфигурацией:</summary>
 Вынос конфигурации grub в отдельный файл, и защита от изменений grub.cfg:
+
  ```
  echo ". $prefix/menu.cfg" >> /boot/grub/grub.cfg
  echo "#grub menu config" >> /boot/grub/menu.cfg
