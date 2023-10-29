@@ -57,9 +57,24 @@ Mонтируем корневой раздел в папку `/mnt`:
  mount /dev/<системный_раздел_efi> /mnt/boot/efi
  ```
 ---
-### Установка системы
+### Установка зеркал:  
+В файле `/etc/pacman.d/mirrorlist` добавляем в самом начале строку:
+ - `Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch`
+---
+### Установка базовых пакетов
 ```
 pacstrap -K base linux linux-firmware iwd neovim dhcpcd
 ```
 
-
+## Установка системы:
+### Генерация fstab:
+ - `genfstab -U /mnt >> /mnt/etc/fstab`
+### Chroot:
+Вход в новую систему:
+ - `arch-chroot /mnt`
+### Установка часового пояса:
+ - `ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime`
+ - `hwclock --systohc`
+### Настройка сети:
+Задаем имя хоста:
+ - `echo "<имя_хоста>" >> /etc/hostname`
