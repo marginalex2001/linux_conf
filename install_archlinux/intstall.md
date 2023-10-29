@@ -91,6 +91,20 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub
 
 <details>
 <summary>Более сложный вариант с ручной конфигурацией:</summary>
+Вынос конфигурации grub в отдельный файл, и защита от изменений grub.cfg:
+ ```
+ echo ". $prefix/menu.cfg" >> /boot/grub/grub.cfg
+ echo "#grub menu config" >> /boot/grub/menu.cfg
+ ```
 
-йцуукен
+Содержимое файла `menu.cfg`:
+ - `nvim /boot/grub/menu.cfg`
+ ```
+ set timeout=5
+ menuentry "Arch Linux" {
+ linux /boot/vmlinuz-linux root=UUID=<UUID_root_диска> rw
+ initrd /boot/initramfs-linux.img
+ }
+ ```
+Это самая простая конфигурация, другие параметры можно посмотреть [тут](https://wiki.archlinux.org/title/GRUB) 
 </details>
