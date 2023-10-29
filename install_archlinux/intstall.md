@@ -63,7 +63,7 @@ Mонтируем корневой раздел в папку `/mnt`:
 ---
 ### Установка базовых пакетов
 ```
-pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub xdg-user-dirs
+pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub xdg-user-dirs git curl zsh openssh
 ```
 
 ## Установка системы:
@@ -116,3 +116,11 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub xdg-user-dirs
 systemctl enable dchpcd
 systemctl enable iwd
 ```
+## Перезагрузка:
+Вводим `exit`
+
+Размонтируем все диски:
+ - `umount -R /mnt`
+
+Перезагружаем:
+ - `systemctl reboot`
