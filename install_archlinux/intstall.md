@@ -95,6 +95,7 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub
 
  ```
  echo ". $prefix/menu.cfg" >> /boot/grub/grub.cfg
+ chattr +i /boot/grub/grub.cfg
  echo "#grub menu config" >> /boot/grub/menu.cfg
  ```
 
@@ -109,3 +110,5 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub
  ```
 Это самая простая конфигурация, другие параметры можно посмотреть [тут](https://wiki.archlinux.org/title/GRUB) 
 </details>
+
+
