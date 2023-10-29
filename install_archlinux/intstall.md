@@ -63,7 +63,7 @@ Mонтируем корневой раздел в папку `/mnt`:
 ---
 ### Установка базовых пакетов
 ```
-pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub
+pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub xdg-user-dirs
 ```
 
 ## Установка системы:
@@ -111,4 +111,8 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub
 Это самая простая конфигурация, другие параметры можно посмотреть [тут](https://wiki.archlinux.org/title/GRUB) 
 </details>
 
-
+##### Добавляем автостарт интернета:
+```
+systemctl enable dchpcd
+systemctl enable iwd
+```
