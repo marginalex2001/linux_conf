@@ -43,7 +43,7 @@
 ---
 ### Монтирование дисков:  
 Создаем `boot` и `home` в `mnt`:
- ```
+ ```bash
 mkdir /mnt/{boot,home}  
 mkdir /mnt/boot/efi
  ```
@@ -52,7 +52,7 @@ Mонтируем корневой раздел в папку `/mnt`:
  - `mount /dev/<корневой_раздел> /mnt`
 
 Монтируем `efi` и `home`:
- ```
+ ```bash
  mount /dev/<домашняя_папка> /mnt/home
  mount /dev/<системный_раздел_efi> /mnt/boot/efi
  ```
@@ -62,7 +62,7 @@ Mонтируем корневой раздел в папку `/mnt`:
  - `Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch`
 ---
 ### Установка базовых пакетов
-```
+```bash
 pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub xdg-user-dirs git curl zsh openssh
 ```
 
@@ -93,7 +93,7 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub xdg-user-dirs git c
 <summary>Более сложный вариант с ручной конфигурацией:</summary>
 Вынос конфигурации grub в отдельный файл, и защита от изменений grub.cfg:
 
- ```
+ ```bash
  echo ". $prefix/menu.cfg" >> /boot/grub/grub.cfg
  chattr +i /boot/grub/grub.cfg
  echo "#grub menu config" >> /boot/grub/menu.cfg
@@ -101,7 +101,7 @@ pacstrap -K base linux linux-firmware iwd neovim dhcpcd grub xdg-user-dirs git c
 
 Содержимое файла `menu.cfg`:
  - `nvim /boot/grub/menu.cfg`
- ```
+ ```bash
  set timeout=5
  menuentry "Arch Linux" {
  linux /boot/vmlinuz-linux root=UUID=<UUID_root_диска> rw
